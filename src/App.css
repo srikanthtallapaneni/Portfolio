@@ -1,0 +1,522 @@
+/* Portfolio – web product layout (distinct from PDF resume) */
+
+.portfolio {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  padding-top: 4.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #1a1a1a;
+  position: relative;
+}
+
+/* Sticky nav – product-style bar */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 1.25rem;
+  margin: 0 -1.25rem 0 -1.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #e8e8ec;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.sticky-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.sticky-nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sticky-nav-link:hover {
+  color: #1e40af;
+  background: #f0f4f8;
+}
+
+.sticky-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-download-btn {
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  color: #fff;
+  background: #2563eb;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-download-btn:hover {
+  background: #1d4ed8;
+}
+
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: #444;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background: #e5e5e5;
+  border-color: #ccc;
+}
+
+.theme-toggle-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theme-toggle-label {
+  letter-spacing: 0.02em;
+}
+
+/* Section scroll offset so sticky nav doesn't cover headings */
+.section[id],
+.header[id] {
+  scroll-margin-top: 3.5rem;
+}
+
+/* Back to top – accent color so it stands out in both themes */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  background: #eff6ff;
+  border: 2px solid #2563eb;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.back-to-top:hover {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.back-to-top-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Header – hero-style, accent line */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem 1.25rem;
+  padding-bottom: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e8e8ec;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.name {
+  font-size: 1.625rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.03em;
+  color: #111;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #2563eb;
+  display: inline-block;
+}
+
+.about-intro {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+  max-width: 42rem;
+  margin: 0 auto 1rem auto;
+}
+
+.contact {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0.35rem;
+}
+
+.contact .separator {
+  margin: 0 0.5rem;
+  color: #999;
+}
+
+.contact a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+.linkedin {
+  font-size: 0.85rem;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.linkedin:hover {
+  text-decoration: underline;
+}
+
+/* Sections – card layout with left accent (not document-style) */
+.section {
+  margin-bottom: 1.25rem;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e8e8ec;
+  border-left: 4px solid #2563eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1e40af;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.35rem;
+  border-bottom: none;
+}
+
+/* Row with label left, date right */
+.section-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.period {
+  font-size: 0.9rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* Education */
+.education-block {
+  margin-bottom: 0.5rem;
+}
+
+.institution {
+  font-weight: 600;
+  color: #222;
+}
+
+.degree {
+  margin: 0.2rem 0 0 0;
+  color: #444;
+}
+
+/* Experience */
+.experience-block {
+  margin-bottom: 1.25rem;
+}
+
+.experience-block:last-child {
+  margin-bottom: 0;
+}
+
+.role-company {
+  font-weight: 600;
+  color: #222;
+}
+
+.bullets {
+  margin: 0.4rem 0 0 0;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.bullets li {
+  margin-bottom: 0.35rem;
+  color: #333;
+}
+
+.bullets li:last-child {
+  margin-bottom: 0;
+}
+
+/* Projects */
+.project-block {
+  margin-bottom: 1.25rem;
+}
+
+.project-block:last-child {
+  margin-bottom: 0;
+}
+
+.project-name {
+  font-weight: 600;
+  color: #222;
+}
+
+.project-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.tech-stack {
+  margin: 0.25rem 0 0.35rem 0;
+  font-size: 0.88rem;
+  color: #555;
+}
+
+/* Skills */
+.skills-block {
+  margin: 0;
+}
+
+.skills-block p {
+  margin: 0 0 0.4rem 0;
+  color: #333;
+}
+
+.skills-block p:last-child {
+  margin-bottom: 0;
+}
+
+.skills-block strong {
+  color: #222;
+}
+
+/* Dark mode – card styling with accent */
+html[data-theme="dark"] .portfolio {
+  color: #e4e4e7;
+}
+
+html[data-theme="dark"] .header {
+  background: #1c1c1e;
+  border-color: #2c2c2e;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] .name {
+  border-bottom-color: #3b82f6;
+}
+
+html[data-theme="dark"] .name {
+  color: #fafafa;
+}
+
+html[data-theme="dark"] .contact {
+  color: #a1a1aa;
+}
+
+html[data-theme="dark"] .contact .separator {
+  color: #71717a;
+}
+
+html[data-theme="dark"] .contact a,
+html[data-theme="dark"] .linkedin {
+  color: #60a5fa;
+}
+
+html[data-theme="dark"] .section {
+  background: #1c1c1e;
+  border-color: #2c2c2e;
+  border-left-color: #3b82f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] .section-title {
+  color: #93c5fd;
+}
+
+html[data-theme="dark"] .period,
+html[data-theme="dark"] .tech-stack {
+  color: #a1a1aa;
+}
+
+html[data-theme="dark"] .institution,
+html[data-theme="dark"] .role-company,
+html[data-theme="dark"] .project-link {
+  color: #60a5fa;
+}
+
+html[data-theme="dark"] .project-link:hover {
+  color: #93c5fd;
+}
+
+html[data-theme="dark"] .project-name,
+html[data-theme="dark"] .degree,
+html[data-theme="dark"] .skills-block p,
+html[data-theme="dark"] .skills-block strong {
+  color: #e4e4e7;
+}
+
+html[data-theme="dark"] .bullets li {
+  color: #d4d4d8;
+}
+
+html[data-theme="dark"] .theme-toggle-btn {
+  color: #d4d4d8;
+  background: #27272a;
+  border-color: #3f3f46;
+}
+
+html[data-theme="dark"] .theme-toggle-btn:hover {
+  background: #3f3f46;
+  border-color: #52525b;
+}
+
+/* Sticky nav dark */
+html[data-theme="dark"] .sticky-nav {
+  background: rgba(28, 28, 30, 0.95);
+  border-color: #2c2c2e;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] .sticky-nav-link {
+  color: #a1a1aa;
+}
+
+html[data-theme="dark"] .sticky-nav-link:hover {
+  color: #fafafa;
+  background: #3f3f46;
+}
+
+html[data-theme="dark"] .nav-download-btn {
+  background: #3b82f6;
+  color: #fff;
+}
+
+html[data-theme="dark"] .nav-download-btn:hover {
+  background: #2563eb;
+}
+
+html[data-theme="dark"] .about-intro {
+  color: #a1a1aa;
+}
+
+/* Back to top in dark theme – same accent so it stays easy to spot */
+html[data-theme="dark"] .back-to-top {
+  color: #93c5fd;
+  background: #1e3a8a;
+  border-color: #3b82f6;
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.35);
+}
+
+html[data-theme="dark"] .back-to-top:hover {
+  background: #1e40af;
+  color: #bfdbfe;
+  border-color: #60a5fa;
+}
+
+/* Print: hide nav/back-to-top, flatten to document look (like PDF resume) */
+@media print {
+  .sticky-nav,
+  .back-to-top {
+    display: none !important;
+  }
+
+  .portfolio {
+    padding-top: 0;
+    padding: 0;
+    max-width: none;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  .header,
+  .section {
+    background: transparent !important;
+    border: none !important;
+    border-left: none !important;
+    box-shadow: none !important;
+  }
+
+  .name {
+    border-bottom: 1px solid #333 !important;
+  }
+
+  .portfolio,
+  .name,
+  .about-intro,
+  .contact,
+  .contact .separator,
+  .linkedin,
+  .section-title,
+  .institution,
+  .degree,
+  .period,
+  .role-company,
+  .project-name,
+  .tech-stack,
+  .bullets li,
+  .skills-block p,
+  .skills-block strong {
+    color: #111 !important;
+  }
+
+  .section-title {
+    color: #111 !important;
+  }
+
+  .contact a,
+  .linkedin,
+  .project-link {
+    color: #111 !important;
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: none;
+  }
+}
